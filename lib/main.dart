@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Drag to change map'),
+      home: const MyHomePage(title: 'Drag to change map location'),
     );
   }
 }
@@ -53,23 +53,20 @@ class _MyHomePageState extends State<MyHomePage> {
         WidgetMarker(
           position: element.locationCoords,
           markerId: element.shopName,
+          draggable: true,
+          infoWindow: InfoWindow(
+            title: element.shopName,
+          ),
           widget: Card(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                height: 60,
-                width: 60,
+                height: 30, color: Colors.white, //width: 80,
                 padding: const EdgeInsets.all(2),
                 child:
-                 Column(
-                   children: [
-                     Image.network(
-                      element.thumbnail,
-                      fit: BoxFit.cover,
-                ),
-                Text(element.shopName),
-                   ],
-                 ),
+                   
+
+                    Text(element.shopName),
               ),
             ),
           ),
